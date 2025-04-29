@@ -1,0 +1,119 @@
+{%load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+    
+<!-- blog-post-standard13:09-->
+<head>
+        
+        <meta charset="utf-8">
+        <title>Wunderkind - Multipurpose Responsive Onepage Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="img/assets/favicon.png" rel="icon" type="image/png">
+        <link href="{% static 'css/init.css'%}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/ion-icons.min.css'%}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/etline-icons.min.css'%}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/theme.css'%}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/custom.css'%}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/colors/purple.css'%}" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7CRaleway:400,100,200,300%7CHind:400,300" rel="stylesheet" type="text/css">
+    </head>
+    <body data-fade-in="true">
+
+        <!-- Start Header -->
+        <nav class="navbar nav-down" data-fullwidth="true" data-menu-style="light" data-animation="shrink"><!-- Styles: light, dark, transparent | Animation: hiding, shrink -->
+            <div class="container">
+
+                <div class="navbar-header">
+                    <div class="container">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar top-bar"></span>
+                            <span class="icon-bar middle-bar"></span>
+                            <span class="icon-bar bottom-bar"></span>
+                        </button>
+                        <a class="navbar-brand to-top" href=""></a>
+                    </div>
+                    <h2>7 Wonders of The World</h2>
+                </div>
+
+                <div id="navbar" class="navbar-collapse collapse">
+                    <div class="container">
+                        <ul class="nav navbar-nav menu-right">
+
+                            <!-- Each section must have corresponding ID ( #hero -> id="hero" ) -->
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Visit my portifolio</a></li>
+                           
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- End Header -->
+
+        <section class="blog">
+            {% for wonder in info %}
+            <div class="container">
+                <div class="row">
+                    <a class="link-to-post" href="#"><h3><strong>{{wonder.Name}}</strong></h3></a>
+                    <!-- Blog Content -->
+                    <div class="col-md-9">
+
+                        <div class="blog-post">
+
+                            <div class="mt20 mb20">
+                                <img src="{{wonder.imageURL}}" class="img-responsive width100" alt="#">
+                            </div>
+
+
+                           
+
+
+                            <div class="post-header">
+                                <h5><span>7</span> <strong><a href="#" class="color"> Wonders of the world</a></strong></h5>
+                               
+                            </div>
+
+                            <p>{{wonder.description}}</p>
+
+                            
+                            <blockquote>{{wonder.funfact}}</blockquote>
+
+                          
+
+                        </div>
+
+
+                
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+      </section>
+   
+      <section class="project-nav">
+        {% if info.has_previous %}
+        <a href="?page={{info.previous_page_number}}"><i class="ion-android-arrow-back"></i><h5><strong>Previous</strong></h5></a>
+        {%endif%}
+       
+      
+        <a href="#"><h5><strong>{{info.number}}</strong></h5></a>
+      
+        {% if info.has_next %}
+        <a href="?page={{info.next_page_number}}"><h5><strong>Next</strong></h5><i class="ion-android-arrow-forward"></i></a>
+      {%endif%} 
+    </section>
+      
+
+    
+
+        <script src="{% static 'js/jquery.js'%}"></script>
+        <script src="{% static 'js/init.js'%}"></script>
+        <script src="{% static 'js/scripts.js'%}"></script>
+
+    </body>
+
+<!-- blog-post-standard13:12-->
+</html>
